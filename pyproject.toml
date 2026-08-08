@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "donut-receipt-training"
+version = "0.1.0"
+description = "Training and evaluation scripts for a receipt Donut model"
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.2",
+  "transformers>=4.46",
+  "accelerate>=1.0",
+  "tokenizers>=0.20",
+  "sentencepiece>=0.2",
+  "Pillow>=10.0",
+  "numpy>=1.26",
+  "albumentations>=2.0",
+  "opencv-python-headless>=4.9",
+  "tqdm>=4.66",
+]
+
+[project.scripts]
+donut-train = "scripts.train:main"
+donut-test = "scripts.test:main"
+donut-predict = "scripts.predict:main"
+donut-prepare-data = "scripts.prepare_data:main"
+
+[tool.setuptools.packages.find]
+include = ["donut_training*", "scripts*"]

@@ -1,0 +1,62 @@
+{
+  "model": {
+    "tokenizer_path": null,
+    "source_tokenizer_path": null,
+    "checkpoint": null,
+    "pretrained_model_name_or_path": "naver-clova-ix/donut-base-finetuned-cord-v2",
+    "adapt_decoder_vocabulary": false,
+    "allow_checkpoint_vocabulary_adaptation": false,
+    "vocabulary_init_strategy": "exact_or_subtokens",
+    "prompt_open": "",
+    "prompt_close": ""
+  },
+  "data": {
+    "train_jsonl": "data/train.jsonl",
+    "validation_jsonl": "data/validation.jsonl",
+    "test_jsonl": "data/test.jsonl",
+    "image_dir": "data/images",
+    "image_height": 1280,
+    "image_width": 736,
+    "max_target_tokens": 768,
+    "grayscale": true,
+    "augmentation": "light",
+    "keep_clean_probability": 0.4,
+    "image_field": "img_path",
+    "text_field": "gt"
+  },
+  "train": {
+    "output_dir": "outputs/donut",
+    "epochs": 20,
+    "train_batch_size": 2,
+    "eval_batch_size": 2,
+    "gradient_accumulation_steps": 4,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.05,
+    "label_smoothing": 0.01,
+    "freeze_encoder_epochs": 1,
+    "early_stopping_patience": 5,
+    "dataloader_workers": 4,
+    "precision": "fp16",
+    "seed": 42,
+    "resume_from_checkpoint": null
+  },
+  "generation": {
+    "batch_size": 1,
+    "max_new_tokens": 768,
+    "do_sample": false,
+    "num_beams": 1,
+    "num_beam_groups": 1,
+    "early_stopping": false,
+    "repetition_penalty": 1.0,
+    "no_repeat_ngram_size": 0,
+    "encoder_no_repeat_ngram_size": 0,
+    "length_penalty": 1.0,
+    "diversity_penalty": 0.0,
+    "temperature": 1.0,
+    "top_k": 50,
+    "top_p": 1.0,
+    "typical_p": 1.0,
+    "field_fuzzy_threshold": 0.9
+  }
+}
