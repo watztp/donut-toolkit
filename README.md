@@ -1,14 +1,18 @@
-# Donut Receipt Training Toolkit
+# Donut Training Toolkit
 
 This repository contains a small, configuration-driven toolkit for fine-tuning,
 evaluating, and running inference with
-[Donut](https://huggingface.co/docs/transformers/model_doc/donut) receipt models.
-It is training and evaluation code only: no trained weights, private datasets, or
+[Donut](https://huggingface.co/docs/transformers/model_doc/donut) models.
+It is training, evaluation, and inference code only: no trained weights, private datasets, or
 benchmark claims are included.
 
-The default model source is
+The current project examples focus on receipt understanding, so the recommended
+default model source is
 [`naver-clova-ix/donut-base-finetuned-cord-v2`](https://huggingface.co/naver-clova-ix/donut-base-finetuned-cord-v2).
-The toolkit can use its original tokenizer or explicitly adapt the decoder to a
+CORD v2 is a practical starting point for receipts, but it is not required. Other
+compatible Donut checkpoints can be selected through
+`model.pretrained_model_name_or_path` or `model.checkpoint`. The toolkit can use
+the selected model's original tokenizer or explicitly adapt its decoder to a
 custom tokenizer.
 
 ## What is included
